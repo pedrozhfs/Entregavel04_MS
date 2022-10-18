@@ -1,0 +1,55 @@
+<!-- include header -->
+<%- include('include/_header') %>
+
+<main id="site-main">
+    <div class="container">
+        
+        <div class="box-nav d-flex-justify-between">
+            <a href="/" class="border-shadow">
+                <span class="text-gradient"><i class="fa-solid fa-arrow-left"></i> Voltar</span>
+            </a>
+        </div>
+        <div class="searchInput">
+            <input type="text" name="search" id="search" placeholder="FILTRE PELA DATA"/> 
+        </div>
+        
+
+        <form action="/" method="POST">
+            <table class="table" id="myTable">
+                <thead class="thead-dark">
+                    <tr class="header">
+                        <th>Data Enviada</th>
+                        <th>ID</th>
+                        <th>Remetente</th>
+                        <th>Destinatário</th>
+                        <th>Assunto</th>
+                        <th>Texto</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%- include('include/_showEmail')%>
+                </tbody>
+            </table>
+        </form>
+
+       
+    </div>
+</main>
+
+<script>
+    const searchInput = document.getElementById("search");
+    const rows = document.querySelectorAll("tbody tr");
+    searchInput.addEventListener("keyup", function (event) {
+      const q = event.target.value.toLowerCase();
+      rows.forEach((row) => {
+        row.querySelector("td").textContent.toLowerCase().startsWith(q)
+          ? (row.style.display = "table-row")
+          : (row.style.display = "none");
+      });
+    });
+  </script>
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->

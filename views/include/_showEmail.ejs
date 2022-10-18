@@ -1,0 +1,11 @@
+<% for(var i = 0; i < emails.length; i++) { %>
+    <tr>
+        <td><%= emails[i].sendDateEmail %></td>
+        <td><%= i + 1 %></td>
+        <td><%= emails[i].emailFrom %></td>
+        <td><%= emails[i].emailTo %></td>
+        <td><%= emails[i].subject %></td>
+        <td><%= emails[i].text %></td>
+        <td><%= emails[i].statusEmail %></td>
+    </tr>
+    <% } %>
